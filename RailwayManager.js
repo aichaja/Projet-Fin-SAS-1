@@ -186,6 +186,8 @@ const trips = [
 
 //------------------------------------
 let choix
+const tickets = [];
+
 do{
     menu()
     choix = Number(prompt("Votre choix : "))
@@ -221,10 +223,10 @@ function Afficher(choix){
             AcheterUnTicket()
         break;
         case 3:
-            console.log("function Afficher les tickets")
+            AfficherLesTickets()
         break;
         case 4:
-            console.log("function Annuler un ticket")
+            AnnulerUnticket()
         break;
         case 5:
             console.log("function Rechercher un ticket")
@@ -262,6 +264,55 @@ function AfficherLesTrajets(){
         
 
     }
+}
+
+// function AcheterUnTicket(){
+//     let Nomdupassager = prompt("Entre Nom du passager : ")
+//     let Identifiantdutrajet = Number(prompt("Entre Identifiant du trajet : "))
+
+//     let setNumbre = 0
+//     for(let i = 0; i < trips.length ; i++){
+
+//         if( Identifiantdutrajet == trips[i].id){
+//             if(trips[i].availableSeats > 0){
+//                 setNumbre = 1
+//                 for(j = 0; j< tickets.length ; j++){
+//                     if()
+//                     tickets = {
+//                         id: tickets[j].id,
+//                         passengerName: ,
+//                         tripId: trips[i].id,
+//                         seatNumber: setNumbre,
+//                         price: trips[i].price,
+
+//                     }
+//                 }
+//             }
+//             else{
+//                 console.log("Train complet")
+//             }
+//         }
+//         else{
+//             console.log("Trajet introuvable")
+//         }
+
+//     }
+// }
+
+function AfficherLesTickets(){
+    for(i = 0 ; i < tickets.length ; i++){
+
+    
+        console.log("===TICKETS===")
+        console.log("   ")
+        console.log("Ticket #" + tickets[i].id)
+        console.log("Passager : " , tickets[i].Nomdupassager )
+        console.log("Trajet :" , trips[i].departureTime ,"→", trips[i].arrivalTime)
+        console.log("Place :", tickets[i].seatNumber)
+        console.log("Prix :",tickets[i].price,"DH")
+        console.log("    ")
+    }
+
 }
 
 
