@@ -276,13 +276,13 @@ function AcheterUnTicket(){
     const trajet =  trips.find(function(trip){
         return  trip.id == Id
     })  
-    // console.log(trajet)  
+    console.log(trajet)  
 
     if(!trajet ){
         console.log("Trajet introuvable")
         return
     }
-    // console.log(trajet.availableSeats)
+    console.log(trajet.availableSeats)
 
     if(trajet.availableSeats <= 0){
         console.log("Train complet")
@@ -292,11 +292,11 @@ function AcheterUnTicket(){
     let seatNombre = 1
 
     for(let i = 0; i < tickets.length;i++){
-        // console.log(tickets[i])
+        console.log(tickets[i])
         if(tickets[i].tripId == trajet.id){
             seatNombre++
         }
-        // console.log(setNombre)
+        console.log(seatNombre)
     }
         
     const ticket = {
@@ -308,11 +308,11 @@ function AcheterUnTicket(){
         price: trajet.price,
 
     }
-    // console.log(ticket)
+    console.log(ticket)
 
-    // console.log(trajet.availableSeats)
+    console.log(trajet.availableSeats)
     trajet.availableSeats--
-    // console.log(trajet.availableSeats)
+    console.log(trajet.availableSeats)
     
     
     
@@ -330,13 +330,15 @@ function AcheterUnTicket(){
 
 function AfficherLesTickets(){
     for(i = 0 ; i < tickets.length ; i++){
-
+        const trajet =  trips.find(function(trip){
+            return  trip.id == tickets[i].tripId
+        })  
     
         console.log("===TICKETS===")
         console.log("   ")
         console.log("Ticket #" + tickets[i].id)
         console.log("Passager : " , tickets[i].passengerName )
-        console.log("Trajet :" , trips[i].departure ,"→", trips[i].destination)
+        console.log("Trajet :" , trajet.departure ,"→", trajet.destination)
         console.log("Place :", tickets[i].seatNumber)
         console.log("Prix :",tickets[i].price,"DH")
         console.log("    ")
@@ -345,17 +347,32 @@ function AfficherLesTickets(){
 }
 
 // function AnnulerUnticket(){
-//     let IdDeTicket = Number(prompt("Entre Identifiant du ticket"))
+//     let IdDeTicket = Number(prompt("Entre Identifiant du ticket : "))
 //     const ticket =  tickets.find(function(ticket){
 //         return  ticket.id == IdDeTicket
 //     })
+//     console.log(ticket)
 
 //     if(!ticket ){
 //         console.log("Ticket introuvable")
 //         return
 //     }
+
+   
+   
     
+//     const trajet =  trips.find(function(trip){
+//         return  trip.id == ticket.tripId
+//     }) 
+//     console.log(trajet)
+
     
+//     tickets.splice(IdDeTicket , 1)
+
+    
+//     console.log(trajet.availableSeats)
+//     trajet.availableSeats++
+//     console.log(trajet.availableSeats)
 
 // }
 
