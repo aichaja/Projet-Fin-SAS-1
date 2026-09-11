@@ -230,7 +230,7 @@ function Afficher(choix){
             AnnulerUnticket()
         break;
         case 5:
-            console.log("function Rechercher un ticket")
+            RechercherUnTicket()
         break;
         case 6:
              console.log("function Filtrer les trajets")
@@ -367,7 +367,7 @@ function AfficherLesTickets(){
 //     console.log(trajet)
 
     
-//     tickets.splice(IdDeTicket , 1)
+//     tickets.splice( , 1)
 
     
 //     console.log(trajet.availableSeats)
@@ -375,6 +375,27 @@ function AfficherLesTickets(){
 //     console.log(trajet.availableSeats)
 
 // }
+
+function RechercherUnTicket(){
+    let NomDePassager = prompt("Entre Nom de passager :")
+
+    for(i = 0; i <tickets.length ;i++){
+        if( NomDePassager == tickets[i].passengerName){
+            const trajet =  trips.find(function(trip){
+                return  trip.id == tickets[i].tripId
+            })
+            console.log("   ")
+            console.log("Ticket #" + tickets[i].id)
+            console.log("Passager : " , tickets[i].passengerName )
+            console.log("Trajet :" , trajet.departure ,"→", trajet.destination)
+            console.log("Place :", tickets[i].seatNumber)
+            console.log("Prix :",tickets[i].price,"DH")
+            console.log("    ")
+
+        }
+    }
+}
+
 
 
 
