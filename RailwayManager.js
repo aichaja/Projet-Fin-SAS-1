@@ -327,7 +327,7 @@ function AcheterUnTicket(){
 
 
 function AfficherLesTickets(){
-    for(i = 0 ; i < tickets.length ; i++){
+    for(let i = 0 ; i < tickets.length ; i++){
         const trajet =  trips.find(function(trip){
             return  trip.id == tickets[i].tripId
         })  
@@ -377,7 +377,7 @@ function AfficherLesTickets(){
 function RechercherUnTicket(){
     let NomDePassager = prompt("Entre Nom de passager :")
 
-    for(i = 0; i <tickets.length ;i++){
+    for(let i = 0; i <tickets.length ;i++){
         if( NomDePassager == tickets[i].passengerName){
             const trajet =  trips.find(function(trip){
                 return  trip.id == tickets[i].tripId
@@ -399,7 +399,7 @@ function FiltrerLestrajets(){
     
     let VilleDeDépart  = prompt("Entre Ville de départ  :")
 
-    for(i = 0; i < trips.length ;i++){
+    for(let i = 0; i < trips.length ;i++){
         if( VilleDeDépart == trips[i].departure){
 
             console.log("    ")
@@ -412,17 +412,20 @@ function FiltrerLestrajets(){
 }
 
 function TrierLesTrajets(){
-    for(i = 0 ; i < trips.length ; i++){
-        for(j = 0; j < trips.length; j++){
-            if(price.trips[j] > price.trips[j + 1]){
-                let c = price.trips[j] 
-                price.trips[j] = price.trips[j + 1]
-                price.trips[j + 1] = c
+    for(let i = 0 ; i < trips.length ; i++){
+        for(let j = 0; j < trips.length - 1; j++){
+            if(trips[j].price > trips[j + 1].price){
+                let c = trips[j]
+                trips[j] = trips[j + 1]
+                trips[j + 1] = c
             }
         }
         
     }
-    
+    for(let i = 0 ; i < trips.length ; i++){
+
+    console.log(trips[i].departure ,"→" ,trips[i].destination ,":" , trips[i].price, "DH")
+    }
 }
 
 
