@@ -191,6 +191,7 @@ const tickets = [];
 
 do{
     menu()
+
     choix = Number(prompt("Votre choix : "))
     Afficher(choix)
 
@@ -233,13 +234,10 @@ function Afficher(choix){
             RechercherUnTicket()
         break;
         case 6:
-             console.log("function Filtrer les trajets")
+            FiltrerLestrajets()
         break;
         case 7:
-             console.log("function Trier les trajets")
-        break;
-        case 0:
-
+            TrierLesTrajets()
         break;
         default:
             console.log("Choix invalide.")
@@ -276,13 +274,13 @@ function AcheterUnTicket(){
     const trajet =  trips.find(function(trip){
         return  trip.id == Id
     })  
-    console.log(trajet)  
+    // console.log(trajet)  
 
     if(!trajet ){
         console.log("Trajet introuvable")
         return
     }
-    console.log(trajet.availableSeats)
+    // console.log(trajet.availableSeats)
 
     if(trajet.availableSeats <= 0){
         console.log("Train complet")
@@ -296,7 +294,7 @@ function AcheterUnTicket(){
         if(tickets[i].tripId == trajet.id){
             seatNombre++
         }
-        console.log(seatNombre)
+        // console.log(seatNombre)
     }
         
     const ticket = {
@@ -308,16 +306,16 @@ function AcheterUnTicket(){
         price: trajet.price,
 
     }
-    console.log(ticket)
+    // console.log(ticket)
 
-    console.log(trajet.availableSeats)
+    // console.log(trajet.availableSeats)
     trajet.availableSeats--
-    console.log(trajet.availableSeats)
+    // console.log(trajet.availableSeats)
     
     
     
     tickets.push(ticket)
-    console.log(tickets)
+    // console.log(tickets)
 
     
 
@@ -394,6 +392,37 @@ function RechercherUnTicket(){
 
         }
     }
+}  
+
+
+function FiltrerLestrajets(){
+    
+    let VilleDeDépart  = prompt("Entre Ville de départ  :")
+
+    for(i = 0; i < trips.length ;i++){
+        if( VilleDeDépart == trips[i].departure){
+
+            console.log("    ")
+            console.log("Résultat :")
+            console.log(trips[i].departure ,"→" ,trips[i].destination , ":" , trips[i].price , "DH" )
+            console.log("    ")
+
+        }
+    }
+}
+
+function TrierLesTrajets(){
+    for(i = 0 ; i < trips.length ; i++){
+        for(j = 0; j < trips.length; j++){
+            if(price.trips[j] > price.trips[j + 1]){
+                let c = price.trips[j] 
+                price.trips[j] = price.trips[j + 1]
+                price.trips[j + 1] = c
+            }
+        }
+        
+    }
+    
 }
 
 
