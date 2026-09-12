@@ -283,26 +283,17 @@ function AcheterUnTicket(){
     // console.log(trajet.availableSeats)
 
     if(trajet.availableSeats <= 0){
-        console.log("Train complet")
-        return
+        console.log("Train complet") 
     }
     
-    let seatNombre = 1
-
-    for(let i = 0; i < tickets.length;i++){
-        // console.log(tickets[i])
-        if(tickets[i].tripId == trajet.id){
-            seatNombre++
-        }
-        // console.log(seatNombre)
-    }
+    
         
     const ticket = {
 
         id: tickets.length + 1,
         passengerName: Nomdupassager,
         tripId: trajet.id,
-        seatNumber: seatNombre,
+        seatNumber: trajet.availableSeats,
         price: trajet.price,
 
     }
